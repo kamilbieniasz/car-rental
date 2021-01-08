@@ -1,0 +1,95 @@
+.login-page{
+    width:100vw;
+    height:100vh;
+    background-image: url('../../../assets/background-images/login.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .login-page__title{
+        color:white;
+        border-bottom: 2px solid white;
+        user-select: none;
+        // transform: translateX(-120%);
+        // font-size:25px;
+    }
+
+    .login-form{
+        min-height: 40vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // border: 2px solid white;
+        padding:60px 30px;
+
+        .login-form__item{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            
+            .login-form__item--icon{
+                color:white;
+            }
+
+            .login-form__item--input{
+                height:30px;
+                margin:20px 0;
+                background-color:transparent;
+                border:none;
+                color:white;
+                padding:0 15px;
+                display:flex;
+                justify-content: center;
+                font-size:20px;
+                
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+
+        .login-form__item--button{
+            padding:15px 40px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color:transparent;
+            border:2px solid white;
+            color: white;
+            cursor: pointer;
+            font-size:20px;
+            margin:20px 0;
+
+            &:focus{
+                outline: none;
+            }
+            &:hover{
+                background-color:white;
+                color: black;
+                transition:.4s ease-in-out;
+                cursor: pointer;
+            }
+        }
+        .login-form__item--register-button{
+            color:white;
+            padding:20px 0;
+            a{
+                text-decoration: none;
+                color:white;
+                user-select: none;
+            }
+        }
+    }
+}
+
+::placeholder{
+    color:white;
+}
+::-webkit-input-placeholder {
+    text-align: center;
+}

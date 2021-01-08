@@ -1,0 +1,16 @@
+<div class="register-page">
+    <h1 class="register-page__title">Rejestracja</h1>
+    <form class="register-form">
+        <span class="register-form__item">
+            <fa-icon [icon]=faAt class="register-form__item--icon"></fa-icon><input type="email" class="register-form__item--input" placeholder="email">
+        </span>
+        <span class="register-form__item">
+            <fa-icon [icon]=faUser class="register-form__item--icon"></fa-icon><input type="text" class="register-form__item--input" placeholder="username">
+        </span>
+        <span class="register-form__item">
+            <fa-icon [icon]=faLock class="register-form__item--icon"></fa-icon><input type="password" class="register-form__item--input" placeholder="password">
+        </span>
+        <button class="register-form__item register-form__item--button">Zarejestruj się</button>
+        <span class="register-form__item--login-button"><a routerLink="/login">Masz już konto?</a></span>
+    </form>
+</div>
