@@ -1,12 +1,14 @@
 <nav class="navbar">
   <ul class="menu">
-    <li class="menu__item">Strona główna</li>
-    <li class="menu__item">O nas</li>
-    <li class="menu__item">Dodatkowe usługi</li>
+    <li class="menu__item" routerLink="" (click)="gotoByName('introduction')">Strona główna</li>
+    <li class="menu__item" routerLink="" fragment="aboutUs" (click)="gotoByName('aboutUs')" >O nas</li>
+    <li class="menu__item" routerLink="" fragment="services" (click)="gotoByName('services')">Dodatkowe usługi</li>
+    <li class="menu__item" routerLink="/fleet">Flota</li>
   </ul>
-  <ul class="login-menu">
-    <li class="login-menu__item">Zaloguj się</li>
-    <li class="login-menu__item">Zarejestruj się</li>
+  <ul class="menu">
+    <li class="menu__item" routerLink="/login">Zaloguj się</li>
+    <li class="menu__item" routerLink="/register">Zarejestruj się</li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
+
