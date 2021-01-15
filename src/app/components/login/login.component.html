@@ -2,12 +2,12 @@
     <h1 class="login-page__title">Logowanie</h1>
     <form class="login-form">
         <span class="login-form__item">
-            <fa-icon [icon]=faUser class="login-form__item--icon"></fa-icon><input type="text" class="login-form__item--input" placeholder="username">
+            <fa-icon [icon]=faUser class="login-form__item--icon"></fa-icon><input type="text" class="login-form__item--input" placeholder="username" [(ngModel)]="username" name="username">
         </span>
         <span class="login-form__item">
-            <fa-icon [icon]=faLock class="login-form__item--icon"></fa-icon><input type="password" class="login-form__item--input" placeholder="password">
+            <fa-icon [icon]=faLock class="login-form__item--icon"></fa-icon><input type="password" class="login-form__item--input" placeholder="password" [(ngModel)]="password" name="password">
         </span>
-        <button class="login-form__item login-form__item--button">Zaloguj się </button>
+        <button class="login-form__item login-form__item--button" (click)="Authentication()">Zaloguj się </button>
         <span class="login-form__item--register-button"><a routerLink="/register">Nie masz jeszcze konta?</a></span>
     </form>
 </div>
