@@ -64,6 +64,7 @@
             cursor: pointer;
             font-size:20px;
             margin:20px 0;
+            transition:.4s ease-in-out;
 
             &:focus{
                 outline: none;
