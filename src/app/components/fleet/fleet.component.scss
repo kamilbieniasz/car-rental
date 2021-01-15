@@ -1,0 +1,113 @@
+.fleet{
+    width:100vw;
+    min-height:100vh;
+    background-color: hsl(214, 94%, 6%);
+    position: relative;
+    font-family: Lato;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    .fleet__filters{
+        width:100vw;
+        height:10vh;
+        position:absolute;
+        top:10vh;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: white;
+
+        .fleet__filters--select{
+            
+            
+        }
+        .fleet__filters--type{
+            input{
+            }
+        }
+    }
+    
+    .fleet__type{
+        color:white;
+        margin:10vh 0 0 0;
+        padding:0;
+        display:flex;
+        justify-content: center;
+        list-style-type: none;
+        
+        .type{
+            padding: 10px 20px;
+            border: 2px solid white;
+            margin: 0 10px;
+            user-select: none;
+
+            &:hover{
+                background-color:white;
+                color: black;
+                transition:.4s ease-in-out;
+                cursor: pointer;
+            }
+        }
+    }
+
+        .fleet__cars{
+            width:90vw;
+            list-style-type: none;
+            color:white;
+            padding:0;
+            
+            .car{
+                display:flex;
+                justify-content: space-around;
+                align-items: center;
+                padding:40px 0;
+                border-bottom: 2px white solid;
+
+                &:last-child{
+                    border-bottom: none;
+                }
+
+                .car__image{
+                    width:288px;
+                    height:162px;
+                }
+                .car__content{
+                    width:40%;
+                    height:100%;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .car__detailsBtn{
+                    padding:15px 40px;
+                    background-color:transparent;
+                    border:2px solid white;
+                    color: white;
+                    cursor: pointer;
+                    font-size:20px;
+                    margin:20px 0;
+                    transition:.4s ease-in-out;
+                    border-radius:20px;
+
+                    &:focus{
+                        outline: none;
+                    }
+                    &:hover{
+                        background-color:white;
+                        color: black;
+                        transition:.4s ease-in-out;
+                        cursor: pointer;
+                    }
+                }
+            }
+    }
+}
+
+
+.selectedItem{
+    background-color:white;
+    color: black;
+}

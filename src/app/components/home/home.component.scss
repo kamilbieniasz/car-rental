@@ -59,6 +59,7 @@
         cursor: pointer;
         font-weight: bold;
         transform:translateY(40%);
+        transition:.4s ease-in-out;
         
         &:focus{
             outline: none;

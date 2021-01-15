@@ -2,14 +2,28 @@
     <h1 class="register-page__title">Rejestracja</h1>
     <form class="register-form">
         <span class="register-form__item">
-            <fa-icon [icon]=faAt class="register-form__item--icon"></fa-icon><input type="email" class="register-form__item--input" placeholder="email">
+            <fa-icon [icon]=faAt class="register-form__item--icon"></fa-icon>
+            <input type="email" class="register-form__item--input" placeholder="email" [(ngModel)]="email" name="email">
         </span>
         <span class="register-form__item">
-            <fa-icon [icon]=faUser class="register-form__item--icon"></fa-icon><input type="text" class="register-form__item--input" placeholder="username">
+            <fa-icon [icon]=faUser class="register-form__item--icon"></fa-icon>
+            <input type="text" class="register-form__item--input" placeholder="nazwa użytkownika" [(ngModel)]="username" name="username">
         </span>
         <span class="register-form__item">
-            <fa-icon [icon]=faLock class="register-form__item--icon"></fa-icon><input type="password" class="register-form__item--input" placeholder="password">
+            <fa-icon [icon]=faLock class="register-form__item--icon"></fa-icon>
+            <input #passwordName type="password" class="register-form__item--input" placeholder="hasło" [(ngModel)]="password" name="password" (ngModelChange)="validPassword()">
+            <fa-icon [icon]=faEye class="register-form__item--icon" (click)="showPassword(passwordRef)"></fa-icon>
         </span>
+        <p class="register-form__validatePassword" *ngIf="withoutDigits">Hasło musi zawierać liczbę</p>
+        <p class="register-form__validatePassword" *ngIf="uppercase">Hasło musi zawierać dużą literę</p>
+        <p class="register-form__validatePassword" *ngIf="specialSigns">Hasło musi zawierać znak specjalny</p>
+        <p class="register-form__validatePassword" *ngIf="toShort">Hasło musi mieć conajmniej 8 znaków</p>
+        <span class="register-form__item">
+            <fa-icon [icon]=faLock class="register-form__item--icon"></fa-icon>
+            <input #confirmPasswordName type="password" class="register-form__item--input" placeholder="potwierdź hasło" [(ngModel)]="confirmPassword" name="confirmPassword" (ngModelChange)="matchPassword()">
+            <fa-icon [icon]=faEye class="register-form__item--icon" (click)="showPassword(confirmPasswordRef)"></fa-icon>
+        </span>
+        <p class="register-form__validatePassword" *ngIf="matchedPassword">Hasła nie są takie same</p>
         <button class="register-form__item register-form__item--button">Zarejestruj się</button>
         <span class="register-form__item--login-button"><a routerLink="/login">Masz już konto?</a></span>
     </form>

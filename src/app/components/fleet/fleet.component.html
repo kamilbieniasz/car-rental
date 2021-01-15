@@ -1,1 +1,46 @@
-<p>fleet works!</p>
+<div class="fleet">
+    <!-- <span class="fleet__filters">
+        <select class="fleet__filters--select">
+            <option>Rzeszów</option>
+            <option>Tarnów</option>
+            <option>Kraków</option>
+            <option>Nowy Targ</option>
+        </select>
+        <form class="fleet__filters--type">
+            <input type="checkbox" checked="checked">hatchback
+            <input type="checkbox" checked="checked">sedan
+            <input type="checkbox" checked="checked">combi
+            <input type="checkbox" checked="checked">mini-van
+            <input type="checkbox" checked="checked">suv
+            <input type="checkbox" checked="checked">kabriolet
+        </form>
+        <form class="fleet__filters--price">
+            Cena <input type="number"> - <input type="number">
+        </form>
+        <form class="fleet__filters--year">
+            Rok produkcji <input type="number"> - <input type="number">
+        </form>
+
+    </span> -->
+    <!-- <div class="fleet__cars"> -->
+        <ul class="fleet__type">
+            <!-- <li #type class="type selectedItem" (click)="selectedItem(0)">Hatchback</li>
+            <li #type class="type selectedItem" (click)="selectedItem(1)">Sedan</li>
+            <li #type class="type selectedItem" (click)="selectedItem(2)">SUV</li>
+            <li #type class="type selectedItem" (click)="selectedItem(3)">mini-van</li> -->
+
+            <li #type class="type selectedItem" *ngFor="let type of carTypes; let i=index" (click)="selectedItem(i)">{{type}}</li>
+        </ul>
+        <ul class="fleet__cars">
+            <li *ngFor="let car of selectedCars" class="car">
+                <img [src]=car.image class="car__image">
+                <span class=car__content>
+                    <h2>{{car.mark}} {{car.model}}</h2>
+                    <h3>{{car.description}}</h3>
+                    <h4>{{car.location}}</h4>
+                </span>
+                <button class="car__detailsBtn">Zobacz więcej</button>
+            </li>
+        </ul>
+    <!-- </div> -->
+</div>

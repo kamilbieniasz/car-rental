@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,10 +10,16 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 export class LoginComponent implements OnInit {
   faUser = faUser;
   faLock = faLock;
+  username: string;
+  password: string;
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  async Authentication(): Promise<void>{
+    console.log(await this.auth.authentication(this.username, this.password));
   }
 
 }
