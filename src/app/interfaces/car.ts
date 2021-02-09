@@ -1,4 +1,5 @@
 export interface Car{
+    id: number;
     mark: string;
     model: string;
     carCapacity: number;
@@ -7,4 +8,6 @@ export interface Car{
     color: string;
     location: string;
     price: number;
+    image: string;
+    description: string;
 }

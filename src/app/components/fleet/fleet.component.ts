@@ -1,3 +1,4 @@
+import { AuthGuardService } from './../../services/auth-guard.service';
 import { CarService } from './../../services/car.service';
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Car } from 'src/app/interfaces/car';
@@ -85,5 +86,4 @@ export class FleetComponent implements OnInit {
     }
     this.getTypesCars();
   }
-
 }

@@ -18,4 +18,8 @@ export class CarService {
   getCarTypes(): Observable<string[]>{
     return this.http.get<string[]>(this.url + '/carTypes')
   }
+
+  getCarDetails(id: string): Observable<Car>{
+    return this.http.get<Car>(this.url + '/car/' + id);
+  }
 }

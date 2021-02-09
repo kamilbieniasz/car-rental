@@ -1,7 +1,8 @@
 .fleet{
     width:100vw;
     min-height:100vh;
-    background-color: hsl(214, 94%, 6%);
+    background: rgb(5,97,116);
+    background: linear-gradient(27deg, rgba(5,97,116,1) 0%, rgba(33,33,33,1) 20%, rgba(33,33,33,1) 75%, rgba(5,97,116,1) 100%);
     position: relative;
     font-family: Lato;
     display:flex;

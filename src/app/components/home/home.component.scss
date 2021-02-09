@@ -111,4 +111,15 @@
 .services{
     @include background;
     background-image:url('../../../assets/background-images/services-bg.png');
+    position:relative;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    .services__content{
+        @include content;
+     }
+ 
+     .services__content--description{
+        @include description;
+     }
 }

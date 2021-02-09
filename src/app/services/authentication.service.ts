@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url = 'https://db-car-rental.herokuapp.com';
+  private url = 'https://db-car-rental.herokuapp.com';
+  public isLogged = false;
 
   constructor(private http: HttpClient) {}
 
@@ -21,8 +22,8 @@ export class AuthenticationService {
 
     return accounts.find((account) => {
       if(account.username === username && account.password === password){
-        //return account;
-        //console.log("true" + account.username);
+        this.isLogged = true;
+        console.log(this.isLogged);
         return account;
       }
     });

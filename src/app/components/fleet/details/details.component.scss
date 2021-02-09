@@ -1,0 +1,109 @@
+.car-details{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(5,97,116);
+    background: linear-gradient(27deg, rgba(5,97,116,1) 0%, rgba(33,33,33,1) 20%, rgba(33,33,33,1) 75%, rgba(5,97,116,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .car-details__name{
+        color:white;
+        padding:20px;
+    }
+    .car-details__image{
+        width: 25vw;
+        border: 2px solid white;
+    }
+    .car-details__content{
+        width: 100vw;
+        color:white;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+        ul{
+            list-style-type: none;
+            margin:0;
+            padding:0;
+
+            li{
+                display:flex;
+                justify-content: space-around;
+                font-size: 25px;
+                margin: 40px 0;
+                    .content{
+                        width:15vw;
+                        .content__icon{
+                            padding:15px;
+                        }
+                    }
+            }
+        }
+    }
+    .car_details__form{
+        width:100vw;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        color:white;
+        .form__container{
+            width:100%;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .form_error{
+            color:red;
+            padding:20px;
+        }
+
+        .form__button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border:2px solid white;
+            font-size:20px;
+            padding:20px;
+            background-color: transparent;
+            color:white;
+            transition:.4s ease-in-out;
+            cursor: pointer;
+
+            &:focus{
+                outline: none;
+            }
+            &:hover{
+                background-color:white;
+                color: black;
+                transition:.4s ease-in-out;
+            }
+        }
+    }
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+   
+   ::ng-deep .mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+   } 
+   
+   ::ng-deep .mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: white !important;
+   }
+   
+   ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+   
+   mat-datepicker-toggle {
+    color: white !important;
+   }
