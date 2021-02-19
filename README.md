@@ -1,2 +1,2 @@
 # Aplikacja w budowie
-https://carrental.netlify.app/
+https://ristoraner.netlify.app/
