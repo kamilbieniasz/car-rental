@@ -6,8 +6,10 @@
     <li class="menu__item" routerLink="/fleet">Flota</li>
   </ul>
   <ul class="menu">
-    <li class="menu__item" routerLink="/login">Zaloguj się</li>
-    <li class="menu__item" routerLink="/register">Zarejestruj się</li>
+    <li class="menu__item" routerLink="/login" *ngIf="!(loginStatus$ | async) as LoginStatus">Zaloguj się</li>
+    <li class="menu__item" routerLink="/register" *ngIf="!(loginStatus$ | async) as LoginStatus">Zarejestruj się</li>
+    <li class="menu__item" *ngIf="(loginStatus$ | async) as LoginStatus"><a *ngIf="(username$ | async) as UserName">{{UserName}}</a></li>
+    <li class="menu__item" *ngIf="(loginStatus$ | async) as LoginStatus" (click)="logout()">Wyloguj się</li>
   </ul>
 </nav>
 <router-outlet></router-outlet>

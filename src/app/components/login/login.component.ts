@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   faUser = faUser;
   faLock = faLock;
@@ -20,16 +21,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async Authentication(): Promise<void>{
-    await this.auth.authentication(this.username, this.password)
-    if(await this.auth.authentication(this.username, this.password)){
-      this.loggedUser = await this.auth.authentication(this.username, this.password);
-      sessionStorage.setItem('CURRENT_USER', this.loggedUser);
-      this.router.navigateByUrl(this.activatedRoute.snapshot.queryParams['returnUrl'] || '/');
-    } else{
-
-    }
-
+  Authentication(): void{
+    this.auth.login(this.username, this.password).subscribe();
   }
 
 }

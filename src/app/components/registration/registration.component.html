@@ -24,7 +24,7 @@
             <fa-icon [icon]=faEye class="register-form__item--icon" (click)="showPassword(confirmPasswordRef)"></fa-icon>
         </span>
         <p class="register-form__validatePassword" *ngIf="matchedPassword">Hasła nie są takie same</p>
-        <button class="register-form__item register-form__item--button">Zarejestruj się</button>
+        <button class="register-form__item register-form__item--button" (click)="register()">Zarejestruj się</button>
         <span class="register-form__item--login-button"><a routerLink="/login">Masz już konto?</a></span>
     </form>
 </div>
