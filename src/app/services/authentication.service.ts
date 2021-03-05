@@ -1,4 +1,5 @@
-import { Router } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
+import { Router, Routes, ActivatedRoute } from '@angular/router';
 import { UserLogin } from './../interfaces/userLogin';
 import { AccountI } from './../interfaces/accountI';
 import { Injectable } from '@angular/core';
@@ -16,7 +17,7 @@ export class AuthenticationService {
   private loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
   private userName = new BehaviorSubject<string>(localStorage.getItem('username'));
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   login(username: string, password: string): any{
     const user: UserLogin = {
@@ -32,9 +33,15 @@ export class AuthenticationService {
         if(result){
           this.loginStatus.next(true);
           localStorage.setItem("loginStatus", "1");
+          localStorage.setItem("userId", result.id.toString());
           localStorage.setItem("username", result.username);
           localStorage.setItem("email", result.email);
-          this.router.navigate(['/']);
+          console.log(this.route.snapshot.queryParams['redirectURL']);
+          if(this.route.snapshot.queryParams['redirectURL']){
+            this.router.navigate([this.route.snapshot.queryParams['redirectURL']]);
+          } else{
+            this.router.navigate(['/']);
+          }
         }
         return result;
       })

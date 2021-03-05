@@ -1,12 +1,13 @@
+import { Reservation } from './../../../interfaces/reservation';
+import { ReservationService } from './../../../services/reservation.service';
 import { AuthGuardService } from './../../../services/auth-guard.service';
 import { CarService } from './../../../services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap, Router, RouterStateSnapshot } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { Car } from 'src/app/interfaces/car';
-import { BehaviorSubject, Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 import { faTools, faCar, faCalendarAlt, faPaintBrush, faBuilding, faDollarSign } from '@fortawesome/free-solid-svg-icons';
-import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -32,8 +33,12 @@ export class DetailsComponent implements OnInit {
   price = null;
   isLogged = false;
   error = '';
+  id_car = null;
+  car_location = null;
+  location_to = null;
+  userId = null;
 
-  constructor(private http: CarService, private route: ActivatedRoute, private auth: AuthGuardService) { }
+  constructor(private http: CarService, private route: ActivatedRoute, private auth: AuthGuardService, private router: Router, private reservation: ReservationService) { }
 
   ngOnInit(): void {
     this.carDetails = this.route.paramMap.pipe(
@@ -41,7 +46,11 @@ export class DetailsComponent implements OnInit {
     );
     this.carDetails.subscribe(car => { this.priceTmp = car.price; });
     this.isLogged = this.auth.canActivate();
-    
+    this.route.params.subscribe(params => {
+      this.id_car = params['id'];
+    });
+    this.carDetails.subscribe(car => this.car_location = car.location);
+    this.userId = localStorage.getItem('userId');
   }
 
   async calculateDays(): Promise<void>{
@@ -70,5 +79,31 @@ export class DetailsComponent implements OnInit {
     console.log(currentDate > dateTo);
     console.log(currentDate);
     console.log(dateTo);
+  }
+
+  gotoLogin(){
+    this.router.navigate(['login'], {queryParams: {'redirectURL':this.router.url}});
+  }
+
+  handleSelectOption(location: string){
+    console.log(location);
+    this.location_to = location;
+  }
+
+  addReservation(){
+    const date_from = this.dateFrom.getFullYear() + '-' + this.dateFrom.getMonth() + '-' + this.dateFrom.getDate();
+    const date_to = this.dateTo.getFullYear() + '-' + this.dateTo.getMonth() + '-' + this.dateTo.getDate();
+    console.log(this.location_to);
+    const reservation: Reservation = {
+      id_car: this.id_car,
+      date_from,
+      date_to,
+      location_from: this.car_location,
+      location_to: this.location_to,
+      price: this.price,
+      id_user: this.userId
+    }
+
+    this.reservation.addReservation(reservation).subscribe();
   }
 }

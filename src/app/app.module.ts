@@ -16,6 +16,8 @@ import { DetailsComponent } from './components/fleet/details/details.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ReservationComponent } from './components/reservation/reservation.component';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { MatInputModule } from '@angular/material/input';
     LoginComponent,
     RegistrationComponent,
     FleetComponent,
-    DetailsComponent
+    DetailsComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,

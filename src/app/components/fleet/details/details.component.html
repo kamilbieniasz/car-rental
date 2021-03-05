@@ -33,11 +33,19 @@
                 <mat-datepicker-toggle matSuffix [for]="picker2" (click)="calculateDays()"></mat-datepicker-toggle>
                 <mat-datepicker (closed)="calculateDays()" #picker2></mat-datepicker>
             </mat-form-field>
+            <select (change)="handleSelectOption($event.target.value)">
+                <option selected="selected" disabled>Wybierz miasto</option>
+                <option [ngValue]="Tarnow">Tarnów</option>
+                <option [ngValue]="Rzeszow">Rzeszów</option>
+                <option [ngValue]="Krakow">Kraków</option>
+                <option [ngValue]="NowyTarg">Nowy Targ</option>
+                <!-- <option [ngValue]="Nowy Targ">Nowy Targ</option> -->
+            </select>
             <p>Liczba dni: {{dayCounter}}</p>
             <p>Cena: {{price}}</p>
         </span>
         <span class="form_error" *ngIf="error">{{error}}</span>
-        <button class="form__button" *ngIf="isLogged">Zatwierdź</button>
-        <button class="form__button" *ngIf="!isLogged" [routerLink]="['/login']">Zaloguj się aby wypożyczyć samochód</button>
+        <button class="form__button" *ngIf="isLogged" (click)="addReservation()">Zatwierdź</button>
+        <button class="form__button" *ngIf="!isLogged" (click)="gotoLogin()">Zaloguj się aby wypożyczyć samochód</button>
     </form>
 </div>

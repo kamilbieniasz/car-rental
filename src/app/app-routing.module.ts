@@ -6,13 +6,15 @@ import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '', component: HomeComponent, pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegistrationComponent},
     {path: 'fleet', component: FleetComponent},
-    {path: 'fleet/:id', component: DetailsComponent}
+    {path: 'fleet/:id', component: DetailsComponent},
+    {path: 'reservation', component: ReservationComponent}
     // {path: 'details', component: DetailsComponent, canActivate: [AuthGuardService]}
 ];
 

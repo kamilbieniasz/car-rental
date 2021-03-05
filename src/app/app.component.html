@@ -4,6 +4,7 @@
     <li class="menu__item" routerLink="" fragment="aboutUs" (click)="gotoByName('aboutUs')" >O nas</li>
     <li class="menu__item" routerLink="" fragment="services" (click)="gotoByName('services')">Dodatkowe usługi</li>
     <li class="menu__item" routerLink="/fleet">Flota</li>
+    <li class="menu__item" routerLink="/reservation"*ngIf="(loginStatus$ | async) as LoginStatus">Twoje zamówienia</li>
   </ul>
   <ul class="menu">
     <li class="menu__item" routerLink="/login" *ngIf="!(loginStatus$ | async) as LoginStatus">Zaloguj się</li>
