@@ -16,4 +16,12 @@ export class ReservationService {
   addReservation(reservation: Reservation){
     return this.http.post(this.urlPHP + 'api/reservation', reservation).pipe(tap(console.log));
   }
+
+  getUserReservation(id_user: number){
+    console.log(id_user);
+    const reservation = {
+      id_user
+    }
+    return this.http.post(this.urlPHP + 'api/reservations', reservation).pipe(tap(console.log));
+  }
 }

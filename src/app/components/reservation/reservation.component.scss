@@ -5,4 +5,61 @@
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    ul{
+        display:grid;
+        grid-template-columns: repeat(2, 40vw);
+        margin:0;
+        padding:0;
+        list-style-type: none;
+
+        li{
+            color:white;
+            font-size:20px;
+            padding:10px;
+            margin:30px;
+            background-color:rgba(0,0,0,0.7);
+            text-align: center;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+
+            .icon{
+                display:none;
+            }
+
+            &:nth-child(even){
+                border-radius: 0 40px 0 40px;
+            }
+            &:nth-child(odd){
+                border-radius: 40px 0 40px 0;
+            }
+            &:hover{
+                transform:scale(1.1);
+                background-color: white;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-transition: all .2s ease-in;
+                -moz-transition: all .2s ease-in;
+                -o-transition: all .2s ease-in;
+                transition: all .2s ease-in;
+                cursor:pointer;
+            }
+            &:hover p, &:hover h2{
+                display:none;
+            }
+            &:hover .icon{
+                display:flex;
+                color:black;
+                font-size: 70px;
+            }
+            
+
+        }
+    }
 }
