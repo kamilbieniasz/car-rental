@@ -32,13 +32,6 @@ export class AppComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  gotoByName(name: string): void{
-    console.log(this.outlet);
-    if (this.outlet.component.__proto__.constructor.name === 'HomeComponent'){
-    eval(`this.outlet.component.` + name + `.nativeElement.scrollIntoView({behavior: 'smooth'})`);
-    }
-  }
-
   logout(): void{
     this.auth.logout();
   }

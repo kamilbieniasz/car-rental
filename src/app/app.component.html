@@ -5,9 +5,9 @@
 </button>
 <nav class="navbar" #navbar>
   <ul class="menu">
-    <li class="menu__item" routerLink="" (click)="gotoByName('introduction')">Strona główna</li>
-    <li class="menu__item" routerLink="" fragment="aboutUs" (click)="gotoByName('aboutUs')" >O nas</li>
-    <li class="menu__item" routerLink="" fragment="services" (click)="gotoByName('services')">Dodatkowe usługi</li>
+    <li class="menu__item" routerLink="" [fragment]="'introduction'">Strona główna</li>
+    <li class="menu__item" routerLink="" [fragment]="'aboutUs'">O nas</li>
+    <li class="menu__item" routerLink="" [fragment]="'services'">Dodatkowe usługi</li>
     <li class="menu__item" routerLink="/fleet">Flota</li>
     <li class="menu__item" routerLink="/reservation"*ngIf="(loginStatus$ | async) as LoginStatus">Twoje zamówienia</li>
   </ul>
