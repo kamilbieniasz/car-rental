@@ -5,15 +5,15 @@
 </button>
 <nav class="navbar" #navbar>
   <ul class="menu">
-    <li class="menu__item" routerLink="" [fragment]="'introduction'">Strona główna</li>
-    <li class="menu__item" routerLink="" [fragment]="'aboutUs'">O nas</li>
-    <li class="menu__item" routerLink="" [fragment]="'services'">Dodatkowe usługi</li>
-    <li class="menu__item" routerLink="/fleet">Flota</li>
-    <li class="menu__item" routerLink="/reservation"*ngIf="(loginStatus$ | async) as LoginStatus">Twoje zamówienia</li>
+    <li class="menu__item" routerLink="" [fragment]="'introduction'" (click)="closeMenuWhenClick()">Strona główna</li>
+    <li class="menu__item" routerLink="" [fragment]="'aboutUs'" (click)="closeMenuWhenClick()">O nas</li>
+    <li class="menu__item" routerLink="" [fragment]="'services'" (click)="closeMenuWhenClick()">Dodatkowe usługi</li>
+    <li class="menu__item" routerLink="/fleet" (click)="closeMenuWhenClick()">Flota</li>
+    <li class="menu__item" routerLink="/reservation"*ngIf="(loginStatus$ | async) as LoginStatus" (click)="closeMenuWhenClick()">Twoje zamówienia</li>
   </ul>
   <ul class="menu">
-    <li class="menu__item" routerLink="/login" *ngIf="!(loginStatus$ | async) as LoginStatus">Zaloguj się</li>
-    <li class="menu__item" routerLink="/register" *ngIf="!(loginStatus$ | async) as LoginStatus">Zarejestruj się</li>
+    <li class="menu__item" routerLink="/login" *ngIf="!(loginStatus$ | async) as LoginStatus" (click)="closeMenuWhenClick()">Zaloguj się</li>
+    <li class="menu__item" routerLink="/register" *ngIf="!(loginStatus$ | async) as LoginStatus" (click)="closeMenuWhenClick()">Zarejestruj się</li>
     <li class="menu__item" *ngIf="(loginStatus$ | async) as LoginStatus"><a *ngIf="(username$ | async) as UserName">{{UserName}}</a></li>
     <li class="menu__item" *ngIf="(loginStatus$ | async) as LoginStatus" (click)="logout()">Wyloguj się</li>
   </ul>

@@ -1,7 +1,5 @@
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { AuthGuardService } from './services/auth-guard.service';
-import { Route } from '@angular/compiler/src/core';
-import { Component, OnChanges, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList, HostListener } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -17,7 +15,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild(RouterOutlet, {static: true}) outlet;
   @ViewChild('hamburgerBtn') hamburgerBtn: ElementRef;
-  @ViewChild('navbar') navbar:ElementRef;
+  @ViewChild('navbar') navbar: ElementRef;
 
   constructor(private router: Router, private auth: AuthenticationService){}
 
@@ -34,10 +32,25 @@ export class AppComponent implements OnInit {
 
   logout(): void{
     this.auth.logout();
+    this.closeMenuWhenClick();
   }
 
-  showMenu():void{
+  showMenu(): void{
     this.hamburgerBtn.nativeElement.classList.toggle('hamburger-btn--active');
     this.navbar.nativeElement.classList.toggle('navbar--active');
   }
+
+  closeMenuWhenClick(): void{
+    this.hamburgerBtn.nativeElement.classList.remove('hamburger-btn--active');
+    this.navbar.nativeElement.classList.remove('navbar--active');
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeMenuWhenClickOutside(){
+    if(!this.navbar.nativeElement.contains(event.target) && !this.hamburgerBtn.nativeElement.contains(event.target)){
+      this.hamburgerBtn.nativeElement.classList.remove('hamburger-btn--active');
+      this.navbar.nativeElement.classList.remove('navbar--active');
+    }
+  }
+
 }
