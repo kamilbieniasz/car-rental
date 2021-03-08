@@ -9,7 +9,6 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('aboutUs')
   aboutUs: ElementRef;
-
   @ViewChild('introduction')
   introduction: ElementRef;
   @ViewChild('services')
