@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   faLock = faLock;
   username: string;
   password: string;
-  loggedUser
+  loggedUser;
 
-  constructor(private auth: AuthenticationService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private auth: AuthenticationService) {}
 
   ngOnInit(): void {
   }

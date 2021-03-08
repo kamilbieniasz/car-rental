@@ -91,9 +91,8 @@ export class DetailsComponent implements OnInit {
   }
 
   addReservation(){
-    const date_from = this.dateFrom.getFullYear() + '-' + this.dateFrom.getMonth() + '-' + this.dateFrom.getDate();
-    const date_to = this.dateTo.getFullYear() + '-' + this.dateTo.getMonth() + '-' + this.dateTo.getDate();
-    console.log(this.location_to);
+    const date_from = this.dateFrom.getFullYear() + '-' + (this.dateFrom.getMonth()+1) + '-' + this.dateFrom.getDate();
+    const date_to = this.dateTo.getFullYear() + '-' + (this.dateTo.getMonth()+1) + '-' + this.dateTo.getDate();
     const reservation: Reservation = {
       id_car: this.id_car,
       date_from,
@@ -103,7 +102,6 @@ export class DetailsComponent implements OnInit {
       price: this.price,
       id_user: this.userId
     }
-
     this.reservation.addReservation(reservation).subscribe();
   }
 }

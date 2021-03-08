@@ -1,4 +1,9 @@
-<nav class="navbar">
+<button class="hamburger-btn" #hamburgerBtn (click)="showMenu()">
+  <span class="hamburger-btn__container">
+    <span class="hamburger-btn__line"></span>
+  </span>
+</button>
+<nav class="navbar" #navbar>
   <ul class="menu">
     <li class="menu__item" routerLink="" (click)="gotoByName('introduction')">Strona główna</li>
     <li class="menu__item" routerLink="" fragment="aboutUs" (click)="gotoByName('aboutUs')" >O nas</li>

@@ -8,27 +8,6 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-
-    .fleet__filters{
-        width:100vw;
-        height:10vh;
-        position:absolute;
-        top:10vh;
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        background-color: white;
-
-        .fleet__filters--select{
-            
-            
-        }
-        .fleet__filters--type{
-            input{
-            }
-        }
-    }
     
     .fleet__type{
         color:white;
@@ -111,4 +90,20 @@
 .selectedItem{
     background-color:white;
     color: black;
+}
+
+@media screen and (max-width:1000px){
+    .fleet__type{
+        display: block !important;
+        .type{
+            margin:15px !important;
+        }
+    }
+    .car{
+        flex-direction: column !important;
+        .car__content{
+            text-align: center;
+        }
+    }
+
 }

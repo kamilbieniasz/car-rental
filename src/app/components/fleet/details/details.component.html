@@ -34,7 +34,7 @@
                 <mat-datepicker (closed)="calculateDays()" #picker2></mat-datepicker>
             </mat-form-field>
             <select (change)="handleSelectOption($event.target.value)">
-                <option selected="selected" disabled>Wybierz miasto</option>
+                <option selected="selected" disabled>Wybierz miasto oddania</option>
                 <option [ngValue]="Tarnow">Tarnów</option>
                 <option [ngValue]="Rzeszow">Rzeszów</option>
                 <option [ngValue]="Krakow">Kraków</option>

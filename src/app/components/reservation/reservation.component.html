@@ -1,6 +1,6 @@
 <div class="reservation">
-    <ul>
-        <li *ngFor="let reservation of reservationList">
+    <ul class="reservation__container">
+        <li class="reservation__item" *ngFor="let reservation of reservationList" (click)="deleteUserReservation(reservation)">
             <h2>{{reservation.mark}} {{reservation.model}}</h2>
             <p>{{reservation.date_from}} - {{reservation.date_to}}</p>
             <p>miejsce oddania: {{reservation.location_to}}</p>

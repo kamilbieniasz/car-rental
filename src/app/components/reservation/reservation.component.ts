@@ -20,8 +20,11 @@ export class ReservationComponent implements OnInit {
         this.reservationList = reservation;
       });
     }
-    
-    
+  }
+
+  deleteUserReservation(reservation){
+    this.reservation.deleteUserReservation(reservation.reservation_id).subscribe();
+    this.ngOnInit();
   }
 
 }

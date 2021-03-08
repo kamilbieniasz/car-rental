@@ -1,8 +1,6 @@
-import { AuthGuardService } from './../../services/auth-guard.service';
 import { CarService } from './../../services/car.service';
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Car } from 'src/app/interfaces/car';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-fleet',

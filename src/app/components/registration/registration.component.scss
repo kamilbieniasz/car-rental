@@ -1,6 +1,6 @@
 .register-page{
     width:100vw;
-    height:100vh;
+    min-height:100vh;
     background-image: url('../../../assets/background-images/login.jpg');
     background-size:cover;
     background-position: center;
@@ -96,4 +96,11 @@
 }
 ::-webkit-input-placeholder {
     text-align: center;
+}
+
+@media screen and (max-width:1000px){
+    .register-form{
+        margin:0 !important;
+        padding:0 !important;
+    }
 }

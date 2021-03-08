@@ -1,6 +1,6 @@
 .car-details{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: rgb(5,97,116);
     background: linear-gradient(27deg, rgba(5,97,116,1) 0%, rgba(33,33,33,1) 20%, rgba(33,33,33,1) 75%, rgba(5,97,116,1) 100%);
     display: flex;
@@ -107,3 +107,38 @@
    mat-datepicker-toggle {
     color: white !important;
    }
+
+   @media screen and (max-width:1000px){
+        .car-details__content, .form__container{
+            flex-direction: column !important;
+        }
+        .car-details__content{
+            
+            display:flex !important;
+            align-items: center !important;
+            span{
+                width:100%;
+                ul{
+                    width:100%;
+                    justify-content: space-around !important;
+                    li{
+                        .content{
+                            width:40vw !important;
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+        .car-details__image{
+            width:70vw !important;
+        }
+        .form__container{
+            select{
+                height:40px;
+            }
+            p{
+                padding:15px;
+            }
+        }
+    }
