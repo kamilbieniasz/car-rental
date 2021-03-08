@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faUser, faLock, faAt, faEye } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-registration',
@@ -29,7 +31,7 @@ export class RegistrationComponent implements OnInit {
   @ViewChild('confirmPasswordName')
   confirmPasswordRef: ElementRef;
 
-  constructor() { }
+  constructor(private service: AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -71,6 +73,15 @@ export class RegistrationComponent implements OnInit {
       name.nativeElement.attributes[1].nodeValue = 'password';
     } else{
       name.nativeElement.attributes[1].nodeValue = 'text';
+    }
+    
+  }
+
+  async register(): Promise<void>{
+    if(this.email && this.username && this.password && !this.toShort && !this.uppercase && !this.specialSigns && !this.withoutDigits && !this.matchedPassword){
+      await this.service.register(this.email, this.username, this.password);
+    }else{
+      console.log('error');
     }
     
   }

@@ -1,33 +1,13 @@
 .fleet{
     width:100vw;
     min-height:100vh;
-    background-color: hsl(214, 94%, 6%);
+    background: rgb(5,97,116);
+    background: linear-gradient(27deg, rgba(5,97,116,1) 0%, rgba(33,33,33,1) 20%, rgba(33,33,33,1) 75%, rgba(5,97,116,1) 100%);
     position: relative;
     font-family: Lato;
     display:flex;
     flex-direction: column;
     align-items: center;
-
-    .fleet__filters{
-        width:100vw;
-        height:10vh;
-        position:absolute;
-        top:10vh;
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        background-color: white;
-
-        .fleet__filters--select{
-            
-            
-        }
-        .fleet__filters--type{
-            input{
-            }
-        }
-    }
     
     .fleet__type{
         color:white;
@@ -110,4 +90,20 @@
 .selectedItem{
     background-color:white;
     color: black;
+}
+
+@media screen and (max-width:1000px){
+    .fleet__type{
+        display: block !important;
+        .type{
+            margin:15px !important;
+        }
+    }
+    .car{
+        flex-direction: column !important;
+        .car__content{
+            text-align: center;
+        }
+    }
+
 }

@@ -95,6 +95,8 @@
     @include background;
     background-image:url('../../../assets/background-images/about-us-bg.jpg');
     color:white;
+    display:flex;
+    flex-direction: column;
     position: relative;
 
     .about-us__content{
@@ -111,4 +113,46 @@
 .services{
     @include background;
     background-image:url('../../../assets/background-images/services-bg.png');
+    position:relative;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    .services__content{
+        @include content;
+     }
+ 
+     .services__content--description{
+        @include description;
+     }
+}
+
+@media screen and (max-width:1000px){
+    .introduction, .about-us, .services{
+        display:flex;
+        
+        align-items: center;
+    }   
+
+    .about-us__content, 
+    .about-us__content--description, 
+    .introduction__content, 
+    .introduction__content--description, 
+    .services__content, 
+    .services__content--description{
+        width:100vw !important;
+        display: flex;
+        justify-content: center;
+        padding:0 !important;
+        margin:0 !important;
+        position:  relative !important;
+    }
+
+
+    .about-us__content, .introduction__content, .services__content{
+        text-align: center;
+        width:90vw !important;
+    }
+    .about-us__content--button, .introduction__content--button{
+        display:none;
+    }
 }

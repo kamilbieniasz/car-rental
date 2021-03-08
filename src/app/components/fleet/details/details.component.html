@@ -1,0 +1,51 @@
+<div class="car-details" *ngIf="carDetails | async as car">
+    <h1 class="car-details__name">{{car.mark}} {{car.model}}</h1>
+    <div class="car-details__content">
+        <img [src]="car.image" class="car-details__image" />
+        <span >
+            <ul>
+                <li>
+                    <span class="content"><fa-icon [icon]=faTools class="content__icon"></fa-icon>{{car.carCapacity}} cm<sup>3</sup></span>
+                    <span class="content"><fa-icon [icon]=faCar class="content__icon"></fa-icon>{{car.type}}</span>
+                </li>
+                <li>
+                    <span class="content"><fa-icon [icon]=faCalendarAlt class="content__icon"></fa-icon>{{car.year}} r.</span>
+                    <span class="content"><fa-icon [icon]=faPaintBrush class="content__icon"></fa-icon>{{car.colour}}</span>
+                </li>
+                <li>
+                    <span class="content"><fa-icon [icon]=faBuilding class="content__icon"></fa-icon>{{car.location}}</span>
+                    <span class="content"><fa-icon [icon]=faDollarSign class="content__icon"></fa-icon>{{car.price}} zł/doba</span>
+                </li>
+            </ul>
+        </span>
+    </div>
+    <form class="car_details__form" >
+        <span class="form__container" *ngIf="isLogged">
+            <mat-form-field appearance="fill" (click)="calculateDays()">
+                <mat-label>Wybierz datę rozpoczecia</mat-label>
+                <input matInput [matDatepicker]="picker"  [(ngModel)]="dateFrom" name="dateFrom">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker (closed)="calculateDays()" #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill" (click)="calculateDays()">
+                <mat-label>Wybierz datę zakończenia</mat-label>
+                <input matInput [matDatepicker]="picker2" [(ngModel)]="dateTo" name="dateTo">
+                <mat-datepicker-toggle matSuffix [for]="picker2" (click)="calculateDays()"></mat-datepicker-toggle>
+                <mat-datepicker (closed)="calculateDays()" #picker2></mat-datepicker>
+            </mat-form-field>
+            <select (change)="handleSelectOption($event.target.value)">
+                <option selected="selected" disabled>Wybierz miasto oddania</option>
+                <option [ngValue]="Tarnow">Tarnów</option>
+                <option [ngValue]="Rzeszow">Rzeszów</option>
+                <option [ngValue]="Krakow">Kraków</option>
+                <option [ngValue]="NowyTarg">Nowy Targ</option>
+                <!-- <option [ngValue]="Nowy Targ">Nowy Targ</option> -->
+            </select>
+            <p>Liczba dni: {{dayCounter}}</p>
+            <p>Cena: {{price}}</p>
+        </span>
+        <span class="form_error" *ngIf="error">{{error}}</span>
+        <button class="form__button" *ngIf="isLogged" (click)="addReservation()">Zatwierdź</button>
+        <button class="form__button" *ngIf="!isLogged" (click)="gotoLogin()">Zaloguj się aby wypożyczyć samochód</button>
+    </form>
+</div>
