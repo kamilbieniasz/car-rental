@@ -44,7 +44,8 @@
 }
 .fleet{
     @include background;
-    background-image:url('../../../assets/background-images/fleet.png');
+    background:linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4) ), url('../../../assets/background-images/fleet.jpg');
+    background-size: cover;
     display:flex;
     justify-content: center;
     align-items: center;
