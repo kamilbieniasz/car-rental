@@ -16,6 +16,6 @@ Aplikacja internetowa obsługująca wypożyczalnię samochodów. Użytkownik ma 
 
 # Wersja demo projektu: https://carrental.netlify.app/
 
-## Wersja demonstracyjna nie przedstawia wszystkich funckjonalności. Jest to jedynie wersja poglądowa. Nie działa w niej logowanie oraz rejestracja, a więc nie ma możliwości wypożyczenia samochodu.
+### Wersja demonstracyjna nie przedstawia wszystkich funckjonalności. Jest to jedynie wersja poglądowa. Nie działa w niej logowanie oraz rejestracja, a więc nie ma możliwości wypożyczenia samochodu.
 
-## Serwer: https://github.com/kamilbieniasz/car-rental-php-laravel-
+### Serwer: https://github.com/kamilbieniasz/car-rental-php-laravel-
