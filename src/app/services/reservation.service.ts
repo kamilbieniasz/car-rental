@@ -26,7 +26,6 @@ export class ReservationService {
   }
 
   deleteUserReservation(id_reservation: number){
-    console.log("service działa");
     return this.http.delete(this.urlPHP + 'api/reservation/' + id_reservation).pipe(tap(console.log));
   }
 }

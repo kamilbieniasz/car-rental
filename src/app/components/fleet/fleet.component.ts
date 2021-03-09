@@ -35,32 +35,24 @@ export class FleetComponent implements OnInit {
   }
 
   getTypesCars():void{
-    //const selectedType: Car[] = [];
     this.selectedCars = [];
     this.allCars.forEach((car) => { 
       if(this.hatchback && car.type === "Hatchback"){
-        //selectedType.push(car);
         this.selectedCars.push(car);
       }
       if(this.sedan && car.type === "Sedan"){
-        //selectedType.push(car);
         this.selectedCars.push(car);
       }
       if(this.coupe && car.type === "Coupe"){
-        //selectedType.push(car);
         this.selectedCars.push(car);
       }
       if(this.suv && car.type === "SUV"){
-        //selectedType.push(car);
         this.selectedCars.push(car);
       }
       if(this.miniVan && car.type === "Mini-Van"){
-        //selectedType.push(car);
         this.selectedCars.push(car);
       }
     });
-    //console.log(this.sedan);
-    //this.selectedCars = selectedType;
   }
 
   selectedItem(item: number): void{

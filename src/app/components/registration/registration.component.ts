@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faUser, faLock, faAt, faEye } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -68,7 +67,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   showPassword(name: ElementRef): void{
-    console.log(this.passwordRef);
     if(name.nativeElement.attributes[1].nodeValue === 'text'){
       name.nativeElement.attributes[1].nodeValue = 'password';
     } else{

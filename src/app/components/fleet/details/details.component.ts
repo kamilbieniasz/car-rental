@@ -3,7 +3,7 @@ import { ReservationService } from './../../../services/reservation.service';
 import { AuthGuardService } from './../../../services/auth-guard.service';
 import { CarService } from './../../../services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Car } from 'src/app/interfaces/car';
 import { Observable} from 'rxjs';
@@ -76,9 +76,6 @@ export class DetailsComponent implements OnInit {
     }else{
       this.error = '';
     }
-    console.log(currentDate > dateTo);
-    console.log(currentDate);
-    console.log(dateTo);
   }
 
   gotoLogin(){
@@ -86,7 +83,6 @@ export class DetailsComponent implements OnInit {
   }
 
   handleSelectOption(location: string){
-    console.log(location);
     this.location_to = location;
   }
 
